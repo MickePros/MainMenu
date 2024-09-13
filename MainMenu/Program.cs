@@ -27,7 +27,7 @@ namespace MainMenu
                         break;
                     case MenuHelpers.Group:
                         Console.Clear();
-                        int groupSize = Tickets.GroupSize();
+                        uint groupSize = Tickets.GroupSize();
                         Tickets.CalculateGroupPrice(groupSize);
                         break;
                     case MenuHelpers.Repeat:

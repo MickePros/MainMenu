@@ -17,8 +17,7 @@ namespace MainMenu
 
         public static int AgeGroup()
         {
-            Console.Write("How old are you: ");
-            int age = int.Parse(Console.ReadLine());
+            uint age = Utils.ValidateNumber("How old are you?");
             if (age < 5)
             {
                 return Infant;
@@ -39,7 +38,6 @@ namespace MainMenu
             {
                 return Adult;
             }
-            //int age = uint.TryParse();
         }
 
         public static void PrintTicketPrice(int price)
@@ -63,15 +61,14 @@ namespace MainMenu
             }
         }
 
-        public static int GroupSize()
+        public static uint GroupSize()
         {
-            Console.Write("How many are you: ");
-            return int.Parse(Console.ReadLine());
+            return Utils.ValidateNumber("How many are you?");
         }
 
-        public static void CalculateGroupPrice(int groupSize)
+        public static void CalculateGroupPrice(uint groupSize)
         {
-            double groupPrice = 0; // using double in cases where 2147483647 people want to go as a group.
+            double groupPrice = 0; // using double in cases where 4,294,967,295 people want to go as a group.
             for (int i = 1; i < groupSize+1; i++)
             {
                 Console.WriteLine($"Person {i}");
