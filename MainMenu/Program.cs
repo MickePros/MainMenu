@@ -19,10 +19,12 @@ namespace MainMenu
                         keepAlive = false;
                         break;
                     case MenuHelpers.Ticket:
-                        int ageGroup = Tickets.DetermineAgeGroup();
+                        int ageGroup = Tickets.AgeGroup();
                         Tickets.PrintTicketPrice(ageGroup);
                         break;
                     case MenuHelpers.Group:
+                        int groupSize = Tickets.GroupSize();
+                        Tickets.CalculateGroupPrice(groupSize);
                         break;
                     case MenuHelpers.Repeat:
                         break;

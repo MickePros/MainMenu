@@ -13,7 +13,7 @@ namespace MainMenu
         public const int Adult = 120;
         public const int Elderly = 90;
 
-        public static int DetermineAgeGroup()
+        public static int AgeGroup()
         {
             Console.Write("How old are you: ");
             int age = int.Parse(Console.ReadLine());
@@ -29,7 +29,6 @@ namespace MainMenu
                 return Adult;
             }
             //int age = uint.TryParse();
-            return 0;
         }
 
         public static void PrintTicketPrice(int price)
@@ -48,6 +47,23 @@ namespace MainMenu
                 default:
                     break;
             }
+        }
+
+        public static int GroupSize()
+        {
+            Console.Write("How many are you: ");
+            return int.Parse(Console.ReadLine());
+        }
+
+        public static void CalculateGroupPrice(int groupSize)
+        {
+            double groupPrice = 0; // using double in cases where 2147483647 people want to go as a group.
+            for (int i = 1; i < groupSize+1; i++)
+            {
+                Console.WriteLine($"Person {i}");
+                groupPrice += AgeGroup();
+            }
+            Console.WriteLine($"For your group containing {groupSize} people, the group price is calculated to {groupPrice}kr.");
         }
     }
 }
