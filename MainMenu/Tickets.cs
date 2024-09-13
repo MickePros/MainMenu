@@ -9,18 +9,29 @@ namespace MainMenu
 {
     internal class Tickets
     {
+        public const int Infant = 0;
         public const int Junior = 80;
         public const int Adult = 120;
         public const int Elderly = 90;
+        public const int Corpse = 0;
 
         public static int AgeGroup()
         {
             Console.Write("How old are you: ");
             int age = int.Parse(Console.ReadLine());
-            if (age < 21)
+            if (age < 5)
+            {
+                return Infant;
+            }
+            else if (age < 21)
             {
                 return Junior;
-            }else if (age > 64)
+            }
+            else if (age > 100)
+            {
+                return Corpse;
+            }
+            else if (age > 64)
             {
                 return Elderly;
             }
@@ -35,6 +46,9 @@ namespace MainMenu
         {
             switch (price)
             {
+                case 0:
+                    Console.WriteLine($"Bebisar och Odödliga går gratis: {price}kr");
+                    break;
                 case 80:
                     Console.WriteLine($"Ungdomspris: {price}kr");
                     break;
