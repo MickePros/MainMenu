@@ -12,7 +12,7 @@ namespace MainMenu
         public static void RepeatWord(int times)
         {
             string phrase = Utils.ValidateInput($"Enter a phrase you would like me to repeat {times} times for you.", 0);
-            for (int i = 1; i < times+1; i++)
+            for (int i = 1; i <= times; i++)
             {
                 Console.Write($"{i}. {phrase}, ");
             }

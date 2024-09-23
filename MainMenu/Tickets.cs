@@ -9,34 +9,34 @@ namespace MainMenu
 {
     internal class Tickets
     {
-        public const int Infant = 0;
-        public const int Junior = 80;
-        public const int Adult = 120;
-        public const int Elderly = 90;
-        public const int Corpse = 0;
+        public const int InfantPrice = 0;
+        public const int JuniorPrice = 80;
+        public const int AdultPrice = 120;
+        public const int ElderlyPrice = 90;
+        public const int CorpsePrice = 0;
 
         public static int AgeGroup()
         {
             uint age = Utils.ValidateNumber("How old are you?");
             if (age < 5)
             {
-                return Infant;
+                return InfantPrice;
             }
             else if (age < 21)
             {
-                return Junior;
+                return JuniorPrice;
             }
             else if (age > 100)
             {
-                return Corpse;
+                return CorpsePrice;
             }
             else if (age > 64)
             {
-                return Elderly;
+                return ElderlyPrice;
             }
             else
             {
-                return Adult;
+                return AdultPrice;
             }
         }
 
@@ -69,7 +69,7 @@ namespace MainMenu
         public static void CalculateGroupPrice(uint groupSize)
         {
             double groupPrice = 0; // using double in cases where 4,294,967,295 people want to go as a group.
-            for (int i = 1; i < groupSize+1; i++)
+            for (int i = 1; i <= groupSize; i++)
             {
                 Console.WriteLine($"Person {i}");
                 groupPrice += AgeGroup();
